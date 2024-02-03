@@ -1,9 +1,21 @@
 import React from 'react'
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Signup from './pages/SignupPage'
+import LoginPage from './pages/LoginPage'
+import Header from './pages/Header'
+import ItemSubmissionPage from './pages/ItemSubmissionPage'
 export default function App() {
   return (
-    <div>
-      <h1 className='text-center text-3xl font-mono text-yellow-300'>Hello World!</h1>
-    </div>
+   <BrowserRouter>
+    <Header/>
+     <Routes>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/Signup' element={<Signup/>}></Route>
+      <Route path='/login' element={<LoginPage/>}></Route>
+      <Route path='/itemsubmission' element={<ItemSubmissionPage/>}></Route>
+     </Routes>
+
+   </BrowserRouter>
   )
 }
