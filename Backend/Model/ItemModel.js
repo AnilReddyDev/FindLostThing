@@ -4,7 +4,7 @@ const itemSchema = mongoose.Schema(
   {
     ownerId: {
       type: String,
-      required: [true, "Owner id is mandatory !"],
+      // required: [true, "Owner id is mandatory !"],
     },
     img: {
       type: String,

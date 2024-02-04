@@ -10,6 +10,7 @@ const getAllItems = asynchandler(async (req,res)=>{
 
 
 const postItem = asynchandler(async (req,res)=>{
+  try {
     const {ownerId, img, desc, contact} = req.body;
     const newPost = await Item.create({
         ownerId, 
@@ -18,6 +19,11 @@ const postItem = asynchandler(async (req,res)=>{
         contact
     })
     res.status(200).json(newPost)
+  } catch (error) {
+    console.log("Unable to submit ",error)
+  }
+
+
 })
 
 const putItem = asynchandler(async (req,res)=>{

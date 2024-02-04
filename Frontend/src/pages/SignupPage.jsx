@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 export default function Signup() {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
@@ -19,6 +20,14 @@ export default function Signup() {
       console.log("Registration failed. Try again !")
     }
   }
+
+  useEffect(() => {
+    const isTokenAvailable = localStorage.getItem('token');
+    
+    if (isTokenAvailable) {
+      navigate('/')
+    } 
+  }, [])
 
   return (
     <div className=' w-full h-screen bg-white flex  flex-col justify-center items-center'>

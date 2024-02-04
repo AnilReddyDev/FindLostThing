@@ -75,8 +75,7 @@ const loginUser = asyncHandler(async (req, res) => {
       {},
       (err, token) => {
         if (err) throw err;
-        res.send(token);
-        res.status(200).json(userExist);
+          res.cookie('token',token).status(200).send(token);
       }
     );
   } else {
